@@ -1,0 +1,19 @@
+server.port: 9902
+
+spring:
+  application.name: car-service
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/orclpdb1
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: user
+    password: pass
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+
+eureka:
+
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:9000/eureka}
