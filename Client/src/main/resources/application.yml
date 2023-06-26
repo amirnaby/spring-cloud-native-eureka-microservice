@@ -1,0 +1,27 @@
+server.port: 9900
+
+spring:
+  config:
+    use-legacy-processing: true
+  application.name: client-service
+  cloud.config:
+    discovery:
+      serviceId: config-server
+    fail-fast: true
+    retry:
+      initialInterval: 2000
+      maxAttempts: 30
+  mvc.servlet.load-on-startup: 1
+  cloud:
+    config:
+      discovery:
+        enabled: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:9000/eureka}
+    registryFetchIntervalSeconds: 1
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    #preferIpAddress: true
